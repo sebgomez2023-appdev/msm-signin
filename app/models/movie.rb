@@ -14,10 +14,15 @@
 #
 class Movie < ApplicationRecord
   belongs_to :director
-  
+
   has_many :characters
 
   has_many :cast, :through => :characters, :source => :actor
+
+  has_many :bookmarks
+
+  has_many :bookmarks, :through => :bookmarks, :source => :user
+
 
   validates(:title, {:presence => true})
 end
